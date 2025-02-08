@@ -45,18 +45,17 @@ const documentActive = e => {
 }
 
 const documentDesactive = () => {
-    document.removeEventListener('pointerdown',documentActive);
+    document.removeEventListener('mousedown',documentActive);
 }
 
 const trying = (e) => {
         navMenu.classList.add('visible');
         main.classList.add('blur');
-        document.addEventListener('pointerdown',documentActive);
+        document.addEventListener('mousedown',documentActive);
 }
 
 hamburger.addEventListener('click',trying);
-document.addEventListener('pointerup',documentDesactive);
-
+document.addEventListener('mouseup',documentDesactive);
 
 //if the document is clicked but also an anchor button is targeted
 //displaying a page
