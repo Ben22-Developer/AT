@@ -4,6 +4,7 @@
     --third-color: #0a0a2d;
     --fourth-color: #d8d8ee;
 }
+
 *{
     margin: 0;
     padding: 0;
@@ -11,7 +12,7 @@
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     text-align: center;
     line-height: 1.9rem; 
-    scroll-behavior:smooth;
+    /*scroll-behavior:smooth; */
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -35,7 +36,12 @@ a{
   position: sticky;
   top: 0;
   z-index: 5;
+  transition: transform 500ms;
 }
+.header.nav_hidden {
+  transform: translateY(-100%);
+}
+
 .header nav {
     width: 100%;
     height:4.5rem;
@@ -60,6 +66,23 @@ a{
     display: flex;
     justify-content: space-evenly;
 }
+main {
+  >*{
+    padding: 1rem;
+  }
+}
+.blur {
+  background-color:#0a0a2d8f; 
+  * {
+    opacity: 80%;
+  }
+  p {
+    color:black; 
+  }
+  .hamburger,.bar {
+    pointer-events: none;
+  }
+}
 .hamburger{
   display: none;
   cursor: pointer;
@@ -76,13 +99,14 @@ a{
     font-weight: 500;
     transition:background 0.9s,color 0.9s; 
     border-radius: 30px;
-     color: black; 
+    color: black;
+    cursor: pointer; 
 }
 .nav-menu a:hover{
     background: #0a0a2d;
     color: #d8d8ee; 
 }
- i {
+i {
   font-size: 25px;
   display: none !important;
 }
@@ -130,7 +154,7 @@ h1,p,h2 {
     height:25rem;
     background-color: white;
   }
-      /*all of the cards and the small circles (displaying at the bottom), in the div called mySlides*/
+  /*all of the cards and the small circles (displaying at the bottom), in the div called mySlides*/
   .mySlides {
     position: relative;
     width: 100%;
@@ -175,50 +199,51 @@ h1,p,h2 {
     width: 100%;
   }
   }
-} 
+}
+
 /*What We Do Section in the home page*/
 .what-we-do {
   display: flex;
   flex-direction: column;
-  a {
-    color:rgb(255, 0, 43);
-    flex-grow: 1;
-    display: grid;
-    align-items: flex-end;
-  }
-  a:hover {
-    color: rgb(183, 23, 49);
-    text-decoration: underline;
-  }
-  /*Card container*/
-  .cards  { 
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(23rem,1fr));
-    gap:2rem;
-    /*Each single card*/
-    .card {
-      justify-self: center;
-      background-color: var(--primary-color);
-      border-radius:1rem;
-      box-shadow: 0 .5rem 1rem 0 rgba(0,0,0,0.2);
-      width: 23rem;
-      display: flex;
-      flex-direction: column;
-      .image-container {
-        width: 100%;
-        height: 15rem;
-        img {
-          border-radius:1rem 1rem 0 0;
+    a {
+      color:rgb(255, 0, 43);
+      flex-grow: 1;
+      display: grid;
+      align-items: flex-end;
+      cursor: pointer;
+    }
+    a:active {
+      color: rgb(183, 23, 49);
+      text-decoration: underline;
+    }
+    /*Card container*/
+    .cards  { 
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(23rem,1fr));
+      gap:2rem;
+      /*Each single card*/
+      .card {
+        justify-self: center;
+        background-color: var(--primary-color);
+        border-radius:1rem;
+        box-shadow: 0 .5rem 1rem 0 rgba(0,0,0,0.2);
+        width: 95%;
+        display: flex;
+        flex-direction: column;
+        .image-container {
+          width: 100%;
+          height: 15rem;
+          img {
+            border-radius:1rem 1rem 0 0;
+          }
         }
       }
     }
-  }
+    p {
+      /*border: 2px solid; */
+    }
 }
-/*What we do section in its actual page called "Our Programs"*/
-.what-we-do.page {
-  background-color: rgba(255, 255, 255, 0.582);
-}
-/*About Us (At the Home Page)*/
+
 .about-us {
   padding:.5rem;
   display: flex;
@@ -243,13 +268,10 @@ h1,p,h2 {
         width:15rem;
         transition: transform 500ms;
       }
-      p:hover {
-        transform: scale(1.3);
-      }
     }
   }
 }
-/*Our parteners section (Home Page)*/
+/*Our parteners*/
 .our-parteners {
   background-color: white;
   margin: 4rem 0 0 0;
@@ -299,9 +321,9 @@ h1,p,h2 {
 }
 /*feedback section (Home Page and Feedback Page)*/
 .feedback {
+  padding:0 0 1.5rem 0;
   background-color: rgb(1, 15, 37);
   color: white;
-  padding: 3rem 0 4rem 0;
   display: flex;
   flex-direction: column;
   gap:3rem;
@@ -351,20 +373,9 @@ h1,p,h2 {
 .blue-span {
   color: rgb(92, 92, 255);
 }
-/*Back To Top Button All pages*/
-.Back-Top-Button {
-  margin:1rem 0;
-  a {
-    padding: .5rem 2rem;
-    border-radius: 5rem;
-    background-color: #0a0a2d;
-    color: white;
-  }
-  a:hover {
-    background-color: rgb(42, 42, 119);
-  }
-}
+
 footer {
+  margin: 2rem 0 0 0;
   padding:2rem 0;
   background-color: rgb(1, 15, 37);
   color:white;
@@ -392,8 +403,6 @@ footer {
 }
 /*Assistive Technologies Page*/
 .assistivetechnologies-section {
-  background-color: rgba(255, 255, 255, 0.582);
-  padding: 1rem;
   display: flex;
   flex-direction: column;
   gap:2rem;
@@ -437,9 +446,7 @@ footer {
   }
 }
 /*RATA Courses page*/
-.RATA-Courses {
-  background-color: rgba(255, 255, 255, 0.582);
-  padding: 1rem;
+#our-courses {
   display: flex;
   flex-direction: column;
   .all-courses {
@@ -483,8 +490,6 @@ footer {
 }
 /*Publish page*/
 .publish-page {
-  background-color: rgba(255, 255, 255, 0.582);
-  padding: 1rem;
   .publish-report {
     display: flex;
     flex-direction: column;
@@ -503,10 +508,9 @@ footer {
   }
 }
 /*Our Team page*/
-.our-team {
+#our-team {
   background-color: rgb(1, 15, 37);
   color: white;
-  padding: 1rem;
   .team-members {
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(19rem,1fr));
@@ -537,4 +541,7 @@ footer {
   p {
     color:white;
   }
+}
+.none {
+  display: none !important;
 }
