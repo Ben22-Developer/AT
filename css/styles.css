@@ -357,16 +357,6 @@ h1,p,h2 {
         padding: 0;
         color:white;
       }
-      a {
-        color:rgb(255, 0, 43);
-        flex-grow: 1;
-        display: grid;
-        align-items: flex-end;
-      }
-      a:hover {
-        color: rgb(183, 23, 49);
-        text-decoration: underline;
-      }
     }
   }
 }
