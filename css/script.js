@@ -14,7 +14,6 @@ is_nav_menu_active = false;
 //card read more anchor
 read_more_anchor_node_list.forEach(anchor => {
     anchor.addEventListener('click', e => {
-        console.log('in')
         e.target.previousElementSibling.children[0].classList.toggle('none')
     })
 }) 
